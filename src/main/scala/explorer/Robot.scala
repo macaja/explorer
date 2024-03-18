@@ -1,18 +1,18 @@
 package explorer
 
-final case class Robot(pose: Pose, explorationArea: ExplorationArea) {
-  def navigateArea(instructions: List[Instruction]): Robot = {
-    instructions.foldLeft(this)((robot, instruction) => {
-      if (explorationArea.isWithinBounds(robot.pose.location)) {
-        instruction match {
-          case L => robot.copy(pose = robot.pose.turnLeft)
-          case R => robot.copy(pose = robot.pose.turnRight)
-          case M => robot.copy(pose = robot.pose.move)
-        }
-      } else {
-        robot
-      }
-    })
-  }
+final case class Robot(pose: Pose, explorationArea: ExplorationArea)
 
+object Robot {
+    def navigateArea(instructions: List[Instruction], robot: Robot): Robot = {
+        instructions.foldLeft(robot)((robot, instruction) => {
+            robot.explorationArea.isWithinBounds(robot.pose.location) match {
+                case OutOfBounds => robot
+                case WhininBounds => instruction match {
+                    case L => new Robot(Pose.turnLeft(robot.pose), robot.explorationArea)
+                    case R => new Robot(Pose.turnRight(robot.pose), robot.explorationArea)
+                    case M => new Robot(Pose.move(robot.pose), robot.explorationArea)
+                }
+            }
+        })
+    }
 }

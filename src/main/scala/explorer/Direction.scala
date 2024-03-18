@@ -1,22 +1,22 @@
 package explorer
 
-sealed trait Direction {
-  def left: Direction
-  def right: Direction
-}
-case object N extends Direction {
-  def left: Direction = W
-  def right: Direction = E
-}
-case object S extends Direction {
-  def left: Direction = E
-  def right: Direction = W
-}
-case object E extends Direction {
-  def left: Direction = N
-  def right: Direction = S
-}
-case object W extends Direction {
-  def left: Direction = S
-  def right: Direction = N
+sealed trait Direction
+case object N extends Direction 
+case object S extends Direction
+case object E extends Direction
+case object W extends Direction
+
+object Direction {
+    def left(direction: Direction): Direction = direction match {
+        case N => W
+        case S => E
+        case E => N
+        case W => S
+    }
+    def right(direction: Direction): Direction = direction match {
+        case N => E
+        case S => W
+        case E => S
+        case W => N
+    }
 }

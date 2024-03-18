@@ -1,15 +1,17 @@
 package explorer
 
-final case class Pose(location: Coordinates, orientation: Direction) {
-  def move: Pose = {
-    val newLocation = orientation match {
-      case N => location.moveNorth
-      case S => location.moveSouth
-      case E => location.moveEast
-      case W => location.moveWest
+final case class Pose(location: Coordinates, orientation: Direction)
+
+object Pose {
+  def move(pose: Pose): Pose = {
+    val newLocation = pose.orientation match {
+      case N => Coordinates.up(pose.location)
+      case S => Coordinates.down(pose.location)
+      case E => Coordinates.right(pose.location)
+      case W => Coordinates.left(pose.location)
     }
-    this.copy(location = newLocation)
+    new Pose(newLocation, pose.orientation)
   }
-  def turnLeft: Pose = this.copy(orientation = orientation.left)
-  def turnRight: Pose = this.copy(orientation = orientation.right)
+  def turnLeft(pose: Pose): Pose = new Pose(pose.location, Direction.left(pose.orientation))
+  def turnRight(pose: Pose): Pose = new Pose(pose.location, Direction.right(pose.orientation))
 }

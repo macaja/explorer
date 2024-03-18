@@ -1,8 +1,10 @@
 package explorer
 
-final case class Coordinates(x: Int, y: Int) {
-  def moveNorth: Coordinates = this.copy(y = y + 1)
-  def moveSouth: Coordinates = this.copy(y = y - 1)
-  def moveEast: Coordinates = this.copy(x = x + 1)
-  def moveWest: Coordinates = this.copy(x = x - 1)
+final case class Coordinates(x: Int, y: Int)
+
+object Coordinates {
+  def up(coordinates: Coordinates): Coordinates = new Coordinates(coordinates.x, coordinates.y + 1)
+  def down(coordinates: Coordinates): Coordinates = new Coordinates(coordinates.x, coordinates.y - 1)
+  def right(coordinates: Coordinates): Coordinates = new Coordinates(coordinates.x + 1, coordinates.y)
+  def left(coordinates: Coordinates): Coordinates = new Coordinates(coordinates.x - 1, coordinates.y)
 }
