@@ -10,5 +10,4 @@ object FileProcessor {
       .readUtf8Lines(Path(path))
       .compile
       .toList
-
 }

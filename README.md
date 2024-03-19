@@ -72,7 +72,7 @@ Currently when the robot navigate the area the exploration area is check after t
 
 ## TODO List
 
-### Introduce property-based testing with 
+### Introduce property-based testing, this will help a lot to test multiple scenarions
 - **[scalaCheck](https://www.scalacheck.org/):** 
   Property-based testing for Scala
 
@@ -86,3 +86,6 @@ Currently when the robot navigate the area the exploration area is check after t
 
 ### Increase coverage
 
+### Dockerise the app
+
+### Revise the scalafmt config closely to make the code prettier

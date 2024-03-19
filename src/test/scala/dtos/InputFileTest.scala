@@ -14,7 +14,7 @@ class InputFileTest extends AnyFunSuite {
         RobotInputData(Pose(Coordinates(3, 3), E), List(M, M, R, M, M, R, M, R, R, M))
       )
     )
-    val processedInput = InputFile.process(inputFile)
+    val processedInput = InputFile.processInput(inputFile)
     assert(processedInput.nonEmpty)
     assert(processedInput == List("1 3 N", "5 1 E"))
   }
