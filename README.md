@@ -72,12 +72,17 @@ Currently when the robot navigate the area the exploration area is check after t
 
 ## TODO List
 
-Introduce property-based testing with 
-* [scalaCheck](https://www.scalacheck.org/): Property-based testing for Scala
+### Introduce property-based testing with 
+- **[scalaCheck](https://www.scalacheck.org/):** 
+  Property-based testing for Scala
 
-Introduce shapeless for the parsing of the file
-* [shapeless](https://github.com/milessabin/shapeless): generic programming for Scala
+### Introduce shapeless for the parsing of the file
+- **[shapeless](https://github.com/milessabin/shapeless):** 
+  Generic programming for Scala
 
-Introduce Validated from typelevel to handle the errors with Either:
-* [validated](https://typelevel.org/cats/datatypes/validated.html): Error handling type for scala
+### Introduce Validated from typelevel to handle the errors with Either:
+- **[validated](https://typelevel.org/cats/datatypes/validated.html):** 
+  Error handling type for Scala
+
+### Increase coverage
 

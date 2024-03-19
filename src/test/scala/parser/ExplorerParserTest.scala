@@ -3,6 +3,7 @@ package parser
 import org.scalatest.funsuite.AnyFunSuite
 import parser.ExplorerParser
 import domain._
+import dtos.RobotInputData
 
 class ExplorerParserTest extends AnyFunSuite {
   test("parseLines") {

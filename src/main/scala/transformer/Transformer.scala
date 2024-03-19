@@ -1,8 +1,8 @@
 package transformer
 
-import parser.InputFile
 import domain.Robot
 import domain.ExplorationArea
+import dtos.InputFile
 
 object Transformer {
   def transformInputToRobot(inputFile: InputFile): List[Robot] = {

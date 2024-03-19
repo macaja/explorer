@@ -1,7 +1,5 @@
 package transformer
 
-import parser.InputFile
-import parser.RobotInputData
 import domain.Pose
 import domain.Coordinates
 import domain.N
@@ -12,6 +10,8 @@ import domain.R
 import domain.Robot
 import domain.ExplorationArea
 import org.scalatest.funsuite.AnyFunSuite
+import dtos.RobotInputData
+import dtos.InputFile
 
 class TransformerTest extends AnyFunSuite {
 

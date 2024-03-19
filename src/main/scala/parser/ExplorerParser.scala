@@ -12,10 +12,8 @@ import domain.W
 import cats.syntax.traverse._
 import domain.Pose
 import domain.Direction
-
-final case class InputFile(upperRightCoordinates: Coordinates, robotInputData: List[RobotInputData])
-
-final case class RobotInputData(startingPose: Pose, instructions: List[Instruction])
+import dtos.InputFile
+import dtos.RobotInputData
 
 object ExplorerParser {
   def parseLines(lines: List[String]) = parsePartLines(lines.map(_.split(" ").toList))
