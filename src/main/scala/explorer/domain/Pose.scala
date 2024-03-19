@@ -1,4 +1,4 @@
-package explorer
+package explorer.domain
 
 final case class Pose(location: Coordinates, orientation: Direction)
 
