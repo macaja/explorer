@@ -1,4 +1,4 @@
-package explorer.domain
+package domain
 
 sealed trait Instruction
 case object L extends Instruction

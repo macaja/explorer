@@ -1,4 +1,4 @@
-package explorer.domain
+package domain
 
 final case class Robot(pose: Pose, instructions: List[Instruction], explorationArea: ExplorationArea)
 

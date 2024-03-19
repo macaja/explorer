@@ -1,4 +1,4 @@
-package explorer.domain
+package domain
 
 sealed trait Direction {
   override def toString: String = this match {

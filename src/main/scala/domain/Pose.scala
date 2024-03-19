@@ -1,6 +1,8 @@
-package explorer.domain
+package domain
 
-final case class Pose(location: Coordinates, orientation: Direction)
+final case class Pose(location: Coordinates, orientation: Direction) {
+  override def toString: String = s"${location.x.toString()} ${location.y.toString()} ${orientation.toString()}"
+}
 
 object Pose {
   def move(pose: Pose): Pose = {

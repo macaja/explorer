@@ -1,24 +1,26 @@
-package explorer.parser
+package parser
 
-import explorer.domain.Coordinates
-import explorer.domain.Instruction
-import explorer.domain.L
-import explorer.domain.R
-import explorer.domain.M
-import explorer.domain.N
-import explorer.domain.S
-import explorer.domain.E
-import explorer.domain.W
+import domain.Coordinates
+import domain.Instruction
+import domain.L
+import domain.R
+import domain.M
+import domain.N
+import domain.S
+import domain.E
+import domain.W
 import cats.syntax.traverse._
-import explorer.domain.Pose
-import explorer.domain.Direction
+import domain.Pose
+import domain.Direction
 
 final case class InputFile(upperRightCoordinates: Coordinates, robotInputData: List[RobotInputData])
 
 final case class RobotInputData(startingPose: Pose, instructions: List[Instruction])
 
 object ExplorerParser {
-  def parseLine(parts: List[List[String]]): Either[String, InputFile] = {
+  def parseLines(lines: List[String]) = parsePartLines(lines.map(_.split(" ").toList))
+
+  private[parser] def parsePartLines(parts: List[List[String]]): Either[String, InputFile] = {
     for {
       upperRightCoordinates <- parseCoordinates(parts.headOption.getOrElse(List.empty))
       robotInputData        <- parseRobotInputData(parts.drop(1))

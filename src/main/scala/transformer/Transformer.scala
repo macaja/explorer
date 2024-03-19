@@ -1,10 +1,10 @@
-package explorer.transformer
+package transformer
 
-import explorer.parser.InputFile
-import explorer.domain.Robot
-import explorer.domain.ExplorationArea
+import parser.InputFile
+import domain.Robot
+import domain.ExplorationArea
 
-object Transformers {
+object Transformer {
   def transformInputToRobot(inputFile: InputFile): List[Robot] = {
     inputFile.robotInputData.map(robotInputData => {
       val explorationArea = ExplorationArea(inputFile.upperRightCoordinates)

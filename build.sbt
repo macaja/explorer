@@ -5,9 +5,9 @@ ThisBuild / turbo := true
 
 lazy val commonSettings = Seq(
     scalaVersion := "2.13.12",
-    Test / fork := true,
     name := "robot-explorer",
     libraryDependencies ++= Dependencies.common,
+    libraryDependencies ++= Dependencies.test,
     coverageMinimum := 98,
     coverageFailOnMinimum := true,
     coverageHighlighting := true,
@@ -17,16 +17,9 @@ lazy val commonSettings = Seq(
     Compile / scalacOptions --= Seq("-Xlint:nullary-override"),
 )
 
-lazy val core = project
-    .settings(
-        commonSettings,
-        libraryDependencies ++= Dependencies.test,
-        name += "-core",
-    ).enablePlugins(ScoverageSbtPlugin)
-
-    lazy val root = (project in file("."))
-    .aggregate(core)
+lazy val root = (project in file("."))
     .settings(name := "root")
     .settings(commonSettings)
+    .enablePlugins(ScoverageSbtPlugin)
 
-    addCommandAlias("coverageAgg", ";clean;update;compile;scalafmtCheck;test:scalafmtCheck;coverage;test;it:test;coverageAggregate")
+addCommandAlias("coverageAgg", ";clean;update;compile;scalafmtCheck;test:scalafmtCheck;coverage;test;it:test;coverageAggregate")
